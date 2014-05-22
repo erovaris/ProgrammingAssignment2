@@ -1,4 +1,4 @@
-##setwd("C:/Users/eduardo/Documents/GitHub/ProgrammingAssignment2")
+
 ## Put comments here that give an overall description of what your
 ## functions do
 
@@ -27,8 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
 		
 		## get matrix of inverse
 		getmi <- function() i 
-		
-		
+	
 		list(set = set, get = get,
              setmi = setmi,
              getmi = getmi)
