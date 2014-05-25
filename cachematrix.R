@@ -1,22 +1,25 @@
 
-## Put comments here that give an overall description of what your
-## functions do
+## The purpose of these functions is to reduce the
+## cost of time required to calculate the inverse 
+## matrix. This is done by storing the result of 
+## the solve function in cache.
 
-## Write a short comment describing this function
+## This function caches the calculation of the 
+## inverse of the matrix x (parameter) and returns
+##  a list with four functions: 
+## - set: resets the array and clears (null) the inverse matrix 
+## - get: returns the matrix 
+## - setmi: resets the inverse matrix 
+## - getmi: returns the inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-		d <- dim(x)
-		if (d[1] != d[2]) {				
-				stop("The matrix has to be square")
-		}
-
         ## matrix of inverse  
 		i <- NULL
 		
 		## set matrix
 		set <- function(y) {
 				x <<- y
-				i <<- NULL
+				i <<- NULL ## clear cache
 		}
 		
 		## get matrix
@@ -34,10 +37,14 @@ makeCacheMatrix <- function(x = matrix()) {
 		
 }
 
-## Write a short comment describing this function
+## This function checks if the inverse of
+## the matrix of the x object  was already 
+## cached, if the value of the inverse of 
+## the matrix is null then it is calculated 
+## and cached. The return of the function 
+## is the inverse of the matrix.
 
-cacheSolve <- function(x, ...) {
-		
+cacheSolve <- function(x, ...) {	
 		i <- x$getmi()
 		if(!is.null(i)) { 
                 message("getting cached data")
